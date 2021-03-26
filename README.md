@@ -1,2 +1,2 @@
-# zod-generators
-Generate valid or invalid objects from zod models for your tests
+# zod-mocking
+Generate valid or invalid mocks for your tests, directly from your zod models

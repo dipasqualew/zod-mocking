@@ -1,0 +1,13 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`boolean a boolean field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;

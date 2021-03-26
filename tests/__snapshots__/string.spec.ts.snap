@@ -1,0 +1,399 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`strings a URL field with a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a URL field with a max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 25,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 25 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a URL field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a URL field with a min and a max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 50 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a URL field with a min and a max invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 15 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a URL field with a min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a URL field with a min invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 50 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a URL field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a UUID field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a field with max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a field with max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 10 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a field with min === max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a field with min === max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 10 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a field with min === max invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a field with min and max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a field with min and max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 20,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 20 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a field with min and max invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a field with min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings a field with min invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings a field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings an email field with a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings an email field with a max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 15 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings an email field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings an email field with a min and a max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 15 characters long\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings an email field with a min and a max invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 5,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 5 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings an email field with a min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`strings an email field with a min invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": []
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 50 characters\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`strings an email field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;

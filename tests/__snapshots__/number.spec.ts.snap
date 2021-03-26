@@ -1,0 +1,163 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`number a field with max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a field with max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 10\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a field with min === max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a field with min === max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 10\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a field with min === max invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a field with min and max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a field with min and max invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 20,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 20\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a field with min and max invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a field with min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a field with min invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a field without min or max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number an integer field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number an integer field invalidates Invalidates INTEGER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"integer\\",
+    \\"received\\": \\"float\\",
+    \\"message\\": \\"Expected integer, received float\\",
+    \\"path\\": []
+  }
+]"
+`;

@@ -1,0 +1,1767 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`array an array from a URL field with a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 25,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 25 characters long\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a URL field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 15 characters\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      2
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 50 characters long\\",
+    \\"path\\": [
+      2
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a URL field with a min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 50 characters\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a URL field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from a UUID field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from a boolean field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;
+
+exports[`array an array from a field with max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 10\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with max invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 10 characters long\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with min === max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 10\\",
+    \\"path\\": [
+      2
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with min === max invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 10 characters long\\",
+    \\"path\\": [
+      2
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with min and max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 20,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 20\\",
+    \\"path\\": [
+      2
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with min and max invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 20,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 20 characters long\\",
+    \\"path\\": [
+      2
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field with min invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from a field without min or max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`array an array from an email field with a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 15 characters long\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an email field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 5,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 5 characters\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      2
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 15 characters long\\",
+    \\"path\\": [
+      2
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an email field with a min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      1
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 50 characters\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an email field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an integer field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"integer\\",
+    \\"received\\": \\"float\\",
+    \\"message\\": \\"Expected integer, received float\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a URL field with a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 25,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 25 characters long\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a URL field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 15 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 50 characters long\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a URL field with a min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"url\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid url\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 50 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a URL field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a UUID field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a boolean field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      0,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      1,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 10\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with max invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 10 characters long\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with min === max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 10\\",
+    \\"path\\": [
+      3,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with min === max invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 10 characters long\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with min and max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 20,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 20\\",
+    \\"path\\": [
+      3,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with min and max invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 20,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 20 characters long\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field with min invalidates Invalidates DEFAULT 2`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a field without min or max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from an email field with a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 15 characters long\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from an email field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 5,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 5 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 15,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at most 15 characters long\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from an email field with a min invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"validation\\": \\"email\\",
+    \\"code\\": \\"invalid_string\\",
+    \\"message\\": \\"Invalid email\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 50,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 50 characters\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from an email field without min nor max invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from an integer field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"integer\\",
+    \\"received\\": \\"float\\",
+    \\"message\\": \\"Expected integer, received float\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object with an object invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      0,
+      \\"obj\\",
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"obj\\",
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      1,
+      \\"obj\\",
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"obj\\",
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      2,
+      \\"obj\\",
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      3,
+      \\"obj\\",
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      4,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an object with an object with constraints invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      0,
+      \\"obj\\",
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"obj\\",
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      1,
+      \\"obj\\",
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"obj\\",
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      2,
+      \\"obj\\",
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      3,
+      \\"obj\\",
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      4,
+      \\"obj\\",
+      \\"number\\"
+    ]
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      5,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      6,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object with boolean, number and string invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      0,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      1,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
+
+exports[`array an array from an object with boolean, number and string with constraints invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      0,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"boolean\\",
+    \\"received\\": \\"nan\\",
+    \\"path\\": [
+      1,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected boolean, received nan\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 10\\",
+    \\"path\\": [
+      3,
+      \\"number\\"
+    ]
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      4,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 10,
+    \\"type\\": \\"string\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Should be at least 10 characters\\",
+    \\"path\\": [
+      5,
+      \\"string\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array of arrays of strings invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [
+      0,
+      0
+    ],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
