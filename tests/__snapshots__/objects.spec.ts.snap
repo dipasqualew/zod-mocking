@@ -513,6 +513,62 @@ exports[`object an object from a UUID field invalidates Invalidates string__DEFA
 ]"
 `;
 
+exports[`object an object from a bigint field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a bigint field invalidates Invalidates boolean__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a bigint field invalidates Invalidates boolean__FLOAT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from a bigint field invalidates Invalidates boolean__NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
 exports[`object an object from a boolean field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -537,6 +593,74 @@ exports[`object an object from a boolean field invalidates Invalidates boolean__
       \\"boolean\\"
     ],
     \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;
+
+exports[`object an object from a boolean literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a boolean literal invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a date field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a date field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a date field invalidates Invalidates string__INVALID_DATE 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_date\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Invalid date\\"
   }
 ]"
 `;
@@ -1001,6 +1125,174 @@ exports[`object an object from a field without min or max invalidates Invalidate
 ]"
 `;
 
+exports[`object an object from a null field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a null field invalidates Invalidates number__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a null field invalidates Invalidates number__NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from a null field invalidates Invalidates number__STRING 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a number literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a number literal invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a string literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a string literal invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a void field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a void field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a void field invalidates Invalidates string__NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from a void field invalidates Invalidates string__STRING 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  }
+]"
+`;
+
 exports[`object an object from an array from a URL field with a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -1311,6 +1603,76 @@ exports[`object an object from an array from a UUID field invalidates Invalidate
 ]"
 `;
 
+exports[`object an object from an array from a bigint field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a bigint field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
 exports[`object an object from an array from a boolean field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -1337,6 +1699,82 @@ exports[`object an object from an array from a boolean field invalidates Invalid
       0
     ],
     \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a boolean literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a boolean literal invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a date field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_date\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Invalid date\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a date field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_date\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Invalid date\\"
   }
 ]"
 `;
@@ -1905,6 +2343,206 @@ exports[`object an object from an array from a field without min or max invalida
 ]"
 `;
 
+exports[`object an object from an array from a null field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected null, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a null field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected null, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a number literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a number literal invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a string literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a string literal invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a void field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected void, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a void field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected void, received number\\"
+  }
+]"
+`;
+
 exports[`object an object from an array from an email field with a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -2235,6 +2873,76 @@ exports[`object an object from an array from an integer field invalidates Invali
 ]"
 `;
 
+exports[`object an object from an array from an undefined field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected undefined, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from an undefined field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\",
+      2
+    ],
+    \\"message\\": \\"Expected undefined, received number\\"
+  }
+]"
+`;
+
 exports[`object an object from an array of arrays of strings invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -2499,7 +3207,7 @@ exports[`object an object from an integer field invalidates Invalidates number__
 ]"
 `;
 
-exports[`object an object from an integer field invalidates Invalidates number__INTEGER 1`] = `
+exports[`object an object from an integer field invalidates Invalidates number__FLOAT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -2509,6 +3217,62 @@ exports[`object an object from an integer field invalidates Invalidates number__
     \\"path\\": [
       \\"number\\"
     ]
+  }
+]"
+`;
+
+exports[`object an object from an undefined field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from an undefined field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from an undefined field invalidates Invalidates string__NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received number\\"
+  }
+]"
+`;
+
+exports[`object an object from an undefined field invalidates Invalidates string__STRING 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
   }
 ]"
 `;

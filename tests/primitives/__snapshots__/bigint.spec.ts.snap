@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`bigint a bigint field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected bigint, received string\\"
+  }
+]"
+`;
+
+exports[`bigint a bigint field invalidates Invalidates FLOAT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
+exports[`bigint a bigint field invalidates Invalidates NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;

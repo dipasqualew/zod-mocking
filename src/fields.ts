@@ -1,14 +1,20 @@
 /* eslint-disable no-use-before-define */
-import { v4 as uuid4 } from 'uuid';
 import * as zod from 'zod';
 
-import {
-  MAX_INTEGER,
-  MIN_INTEGER,
-  getRandomNumber,
-  getRandomString,
-  getString,
-} from './utils';
+import * as literal from './literal';
+import * as any from './primitives/any';
+import * as bigint from './primitives/bigint';
+import * as boolean from './primitives/boolean';
+import * as date from './primitives/date';
+import * as znull from './primitives/null';
+import * as number from './primitives/number';
+import * as string from './primitives/string';
+import * as zundefined from './primitives/undefined';
+
+/**
+ * Mock generator function
+ */
+export type MockGenerator = () => { DEFAULT?: unknown } & Record<string, unknown>;
 
 /**
  * Returns the generator of valid values
@@ -16,22 +22,47 @@ import {
  *
  * @param field
  */
-export const getValidGenerator = <T extends zod.ZodAny>(field: T) => {
-  let generator: () => { DEFAULT: unknown } & Record<string, unknown> = () => ({ DEFAULT: null });
-
+export const getValidGenerator = <T extends zod.ZodAny>(field: T): MockGenerator => {
   if (field instanceof zod.ZodString) {
-    generator = () => generateValidStrings(field);
-  } else if (field instanceof zod.ZodNumber) {
-    generator = () => generateValidNumbers(field);
-  } else if (field instanceof zod.ZodBoolean) {
-    generator = () => generateValidBooleans(field);
-  } else if (field instanceof zod.ZodArray) {
-    generator = () => generateValidArrays(field);
-  } else if (field instanceof zod.ZodObject) {
-    generator = () => generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>);
+    return () => string.mockValid(field);
+  }
+  if (field instanceof zod.ZodNumber) {
+    return () => number.mockValid(field);
   }
 
-  return generator;
+  if (field instanceof zod.ZodBoolean) {
+    return () => boolean.mockValid(field);
+  }
+
+  if (field instanceof zod.ZodArray) {
+    return () => generateValidArrays(field);
+  }
+
+  if (field instanceof zod.ZodObject) {
+    return () => generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>);
+  }
+
+  if (field instanceof zod.ZodDate) {
+    return () => date.mockValid(field);
+  }
+
+  if (field instanceof zod.ZodBigInt) {
+    return () => bigint.mockValid(field);
+  }
+
+  if (field instanceof zod.ZodLiteral) {
+    return () => literal.mockValid(field);
+  }
+
+  if (field instanceof zod.ZodNull) {
+    return () => znull.mockValid(field);
+  }
+
+  if (field instanceof zod.ZodUndefined || field instanceof zod.ZodVoid) {
+    return () => zundefined.mockValid(field);
+  }
+
+  return () => any.mockValid(field);
 };
 
 /**
@@ -40,22 +71,48 @@ export const getValidGenerator = <T extends zod.ZodAny>(field: T) => {
  *
  * @param field
  */
-export const getInvalidGenerator = <T extends zod.ZodAny>(field: T) => {
-  let generator: () => { DEFAULT: unknown } & Record<string, unknown> = () => ({ DEFAULT: null });
-
+export const getInvalidGenerator = <T extends zod.ZodAny>(field: T): MockGenerator => {
   if (field instanceof zod.ZodString) {
-    generator = () => generateInvalidStrings(field);
-  } else if (field instanceof zod.ZodNumber) {
-    generator = () => generateInvalidNumbers(field);
-  } else if (field instanceof zod.ZodBoolean) {
-    generator = () => generateInvalidBooleans(field);
-  } else if (field instanceof zod.ZodArray) {
-    generator = () => generateInvalidArrays(field);
-  } else if (field instanceof zod.ZodObject) {
-    generator = () => generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>);
+    return () => string.mockInvalid(field);
   }
 
-  return generator;
+  if (field instanceof zod.ZodNumber) {
+    return () => number.mockInvalid(field);
+  }
+
+  if (field instanceof zod.ZodBoolean) {
+    return () => boolean.mockInvalid(field);
+  }
+
+  if (field instanceof zod.ZodArray) {
+    return () => generateInvalidArrays(field);
+  }
+
+  if (field instanceof zod.ZodObject) {
+    return () => generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>);
+  }
+
+  if (field instanceof zod.ZodDate) {
+    return () => date.mockInvalid(field);
+  }
+
+  if (field instanceof zod.ZodLiteral) {
+    return () => literal.mockInvalid(field);
+  }
+
+  if (field instanceof zod.ZodBigInt) {
+    return () => bigint.mockInvalid(field);
+  }
+
+  if (field instanceof zod.ZodNull) {
+    return () => znull.mockInvalid(field);
+  }
+
+  if (field instanceof zod.ZodUndefined || field instanceof zod.ZodVoid) {
+    return () => zundefined.mockInvalid(field);
+  }
+
+  return () => any.mockInvalid(field);
 };
 
 /**
@@ -95,184 +152,6 @@ export const mock = <T extends zod.ZodAny>(field: T) => {
   };
 };
 
-
-/**
- * Generates valid booleans
- * from the given ZodBoolean definition
- *
- * @param _field
- */
-export const generateValidBooleans = (_field: zod.ZodBoolean) => {
-  const booleans = {
-    DEFAULT: true,
-    TRUE: true,
-    FALSE: false,
-  };
-
-  return booleans;
-};
-
-/**
- * Generates invalid booleans
- * from the given ZodBoolean definition
- *
- * @param _field
- */
-export const generateInvalidBooleans = (_field: zod.ZodBoolean) => {
-  const booleans = {
-    DEFAULT: NaN,
-  };
-
-  return booleans;
-};
-
-/**
- * Generates valid numbers
- * from the given ZodNumber definition
- *
- * @param field
- */
-export const generateValidNumbers = (field: zod.ZodNumber) => {
-  const min = field._def.minimum?.value || MIN_INTEGER;
-  const max = field._def.maximum?.value || MAX_INTEGER;
-  const integer = Boolean(field._def.isInteger);
-
-  const numbers = {
-    DEFAULT: getRandomNumber(min, max, integer),
-    MIN: min,
-    MAX: max,
-  };
-
-  return numbers;
-};
-
-/**
- * Generates invalid numbers
- * from the given ZodNumber definition
- *
- * @param field
- */
-export const generateInvalidNumbers = (field: zod.ZodNumber) => {
-  const integer = Boolean(field._def.isInteger);
-
-  const strings: [string, string | number][] = [
-    ['DEFAULT', 'not-a-number'],
-  ];
-
-  if (field._def.minimum) {
-    const underMin = getRandomNumber(MIN_INTEGER, field._def.minimum.value - 1);
-    strings.push(['MIN', underMin]);
-  }
-
-  if (field._def.maximum) {
-    const overMax = getRandomNumber(field._def.maximum.value + 1, MAX_INTEGER);
-    strings.push(['MAX', overMax]);
-  }
-
-  if (integer) {
-    const float = getRandomNumber(field._def.minimum?.value || 0, field._def.maximum?.value || 20, true) + 0.1;
-    strings.push(['INTEGER', float]);
-  }
-
-  return Object.fromEntries(strings) as { DEFAULT: number } & Record<string, number>;
-};
-
-
-/**
- * Generates an email with the given
- * constraints
- *
- * @param minLength
- * @param maxLength
- * @param domain
- */
-export const getRandomEmail = (minLength: number, maxLength: number, domain = 'example.com') => {
-  const normalisedMinlength = Math.max(1, minLength - domain.length - 1); // remove @ and domain length
-  const normalisedMaxLength = Math.max(1, maxLength - domain.length - 1); // remove @ and domain length
-
-  const user = getRandomString(normalisedMinlength, normalisedMaxLength);
-
-  return `${user}@${domain}`;
-};
-
-/**
- * Generates a random URL with the given
- * constraints
- *
- * @param minLength
- * @param maxLength
- * @param domain
- */
-export const getRandomUrl = (minLength: number, maxLength: number, domain = 'example.com') => {
-  const normalisedMinlength = Math.max(1, minLength - domain.length - 9); // remove https://, domain length and initial slash
-  const normalisedMaxLength = Math.max(1, maxLength - domain.length - 9); // remove https://, domain length and initial slash
-
-  const path = getRandomString(normalisedMinlength, normalisedMaxLength);
-
-  return `https://${domain}/${path}`;
-};
-
-/**
- * Generates valid strings
- * from the given ZodString definition
- *
- * @param field
- */
-export const generateValidStrings = (field: zod.ZodString) => {
-  const minLength = field._def.minLength?.value || 0;
-  const maxLength = field._def.maxLength?.value || (minLength + 64);
-
-  let generator = (min: number, max: number) => getRandomString(min, max);
-
-  if (field._def.isUUID) {
-    // UUIDs are fix length
-    // return immediately
-    return {
-      DEFAULT: uuid4(),
-    };
-  }
-
-  if (field._def.isEmail) {
-    generator = (min: number, max: number) => getRandomEmail(min, max);
-  }
-
-  if (field._def.isURL) {
-    generator = (min: number, max: number) => getRandomUrl(min, max);
-  }
-
-  const strings = {
-    DEFAULT: generator(minLength, maxLength),
-    MIN: generator(minLength, maxLength),
-    MAX: generator(maxLength, maxLength),
-  };
-
-  return strings;
-};
-
-/**
- * Generates invalid values
- * from the given ZodString definition
- *
- * @param field
- */
-export const generateInvalidStrings = (field: zod.ZodString) => {
-  const minLength = field._def.minLength?.value || 0;
-
-  const strings: [string, string | null][] = [
-    ['DEFAULT', null],
-  ];
-
-  if (minLength > 0) {
-    strings.push(['MIN', getString(minLength - 1)]);
-  }
-
-  if (field._def.maxLength) {
-    strings.push(['MAX', getString(field._def.maxLength.value + 1)]);
-  }
-
-  return Object.fromEntries(strings) as { DEFAULT: string } & Record<string, string>;
-};
-
 /**
  * Generates valid arrays
  * from the given ZodArray definition
@@ -298,9 +177,15 @@ export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<
   const generator = getInvalidGenerator(field._def.type);
   const items = generator();
 
-  return {
-    DEFAULT: Object.values(items),
-  };
+  const values = Object.values(items);
+
+  if (values.length) {
+    return {
+      DEFAULT: values,
+    };
+  }
+
+  return {};
 };
 
 /**
@@ -361,13 +246,17 @@ export const generateInvalidObjects = <T extends zod.ZodRawShape>(field: zod.Zod
     const generator = getInvalidGenerator(def);
     const invalidMocks = generator();
 
-    defaultMock[key] = invalidMocks.DEFAULT as Shape[keyof Shape];
-    variations[entry[0]] = invalidMocks;
+    if ('DEFAULT' in invalidMocks) {
+      defaultMock[key] = invalidMocks.DEFAULT as Shape[keyof Shape];
+      variations[entry[0]] = invalidMocks;
+    }
   });
 
-  const mocks: [string, unknown][] = [
-    ['DEFAULT', defaultMock],
-  ];
+  const mocks: [string, unknown][] = [];
+
+  if (Object.keys(defaultMock).length) {
+    mocks.push(['DEFAULT', defaultMock]);
+  }
 
   Object.entries(variations).forEach(([fieldName, fieldVariations]) => {
     Object.entries(fieldVariations).forEach(([description, fieldValue]) => {

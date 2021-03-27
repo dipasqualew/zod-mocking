@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`literal a boolean literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`literal a number literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`literal a string literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;

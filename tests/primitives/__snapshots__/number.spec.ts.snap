@@ -150,7 +150,7 @@ exports[`number an integer field invalidates Invalidates DEFAULT 1`] = `
 ]"
 `;
 
-exports[`number an integer field invalidates Invalidates INTEGER 1`] = `
+exports[`number an integer field invalidates Invalidates FLOAT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",

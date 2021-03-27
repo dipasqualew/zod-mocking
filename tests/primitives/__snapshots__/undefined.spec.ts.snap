@@ -1,0 +1,73 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`undefined a void field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected void, received string\\"
+  }
+]"
+`;
+
+exports[`undefined a void field invalidates Invalidates NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected void, received number\\"
+  }
+]"
+`;
+
+exports[`undefined a void field invalidates Invalidates STRING 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected void, received string\\"
+  }
+]"
+`;
+
+exports[`undefined an undefined field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected undefined, received string\\"
+  }
+]"
+`;
+
+exports[`undefined an undefined field invalidates Invalidates NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected undefined, received number\\"
+  }
+]"
+`;
+
+exports[`undefined an undefined field invalidates Invalidates STRING 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected undefined, received string\\"
+  }
+]"
+`;

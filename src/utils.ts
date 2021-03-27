@@ -67,3 +67,37 @@ export const getRandomString = (minLength: number, maxLength: number, alphabet =
 
   return getString(length, alphabet);
 };
+
+/**
+ * Generates an email with the given
+ * constraints
+ *
+ * @param minLength
+ * @param maxLength
+ * @param domain
+ */
+export const getRandomEmail = (minLength: number, maxLength: number, domain = 'example.com') => {
+  const normalisedMinlength = Math.max(1, minLength - domain.length - 1); // remove @ and domain length
+  const normalisedMaxLength = Math.max(1, maxLength - domain.length - 1); // remove @ and domain length
+
+  const user = getRandomString(normalisedMinlength, normalisedMaxLength);
+
+  return `${user}@${domain}`;
+};
+
+/**
+ * Generates a random URL with the given
+ * constraints
+ *
+ * @param minLength
+ * @param maxLength
+ * @param domain
+ */
+export const getRandomUrl = (minLength: number, maxLength: number, domain = 'example.com') => {
+  const normalisedMinlength = Math.max(1, minLength - domain.length - 9); // remove https://, domain length and initial slash
+  const normalisedMaxLength = Math.max(1, maxLength - domain.length - 9); // remove https://, domain length and initial slash
+
+  const path = getRandomString(normalisedMinlength, normalisedMaxLength);
+
+  return `https://${domain}/${path}`;
+};

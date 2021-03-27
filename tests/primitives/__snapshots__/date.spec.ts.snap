@@ -1,0 +1,23 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`date a date field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected date, received string\\"
+  }
+]"
+`;
+
+exports[`date a date field invalidates Invalidates INVALID_DATE 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_date\\",
+    \\"path\\": [],
+    \\"message\\": \\"Invalid date\\"
+  }
+]"
+`;

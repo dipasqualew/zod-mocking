@@ -142,6 +142,38 @@ exports[`array an array from a UUID field invalidates Invalidates DEFAULT 1`] = 
 ]"
 `;
 
+exports[`array an array from a bigint field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      1
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      2
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
 exports[`array an array from a boolean field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -152,6 +184,41 @@ exports[`array an array from a boolean field invalidates Invalidates DEFAULT 1`]
       0
     ],
     \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;
+
+exports[`array an array from a boolean literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from a date field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_date\\",
+    \\"path\\": [
+      1
+    ],
+    \\"message\\": \\"Invalid date\\"
   }
 ]"
 `;
@@ -412,6 +479,98 @@ exports[`array an array from a field without min or max invalidates Invalidates 
       0
     ],
     \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`array an array from a null field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      2
+    ],
+    \\"message\\": \\"Expected null, received number\\"
+  }
+]"
+`;
+
+exports[`array an array from a number literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from a string literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from a void field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      2
+    ],
+    \\"message\\": \\"Expected void, received number\\"
   }
 ]"
 `;
@@ -772,6 +931,51 @@ exports[`array an array from an object from a UUID field invalidates Invalidates
 ]"
 `;
 
+exports[`array an array from an object from a bigint field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      2,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"bigint\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      3,
+      \\"boolean\\"
+    ],
+    \\"message\\": \\"Expected bigint, received number\\"
+  }
+]"
+`;
+
 exports[`array an array from an object from a boolean field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -793,6 +997,64 @@ exports[`array an array from an object from a boolean field invalidates Invalida
       \\"boolean\\"
     ],
     \\"message\\": \\"Expected boolean, received nan\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a boolean literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": true,
+    \\"received\\": false,
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected true, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a date field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"date\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected date, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_date\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Invalid date\\"
   }
 ]"
 `;
@@ -1179,6 +1441,146 @@ exports[`array an array from an object from a field without min or max invalidat
 ]"
 `;
 
+exports[`array an array from an object from a null field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      3,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected null, received number\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a number literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": 1265,
+    \\"received\\": false,
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a string literal invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"Dante Alighieri\\",
+    \\"received\\": false,
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected Dante Alighieri, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a void field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"void\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected void, received number\\"
+  }
+]"
+`;
+
 exports[`array an array from an object from an email field with a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -1390,6 +1792,51 @@ exports[`array an array from an object from an integer field invalidates Invalid
       2,
       \\"number\\"
     ]
+  }
+]"
+`;
+
+exports[`array an array from an object from an undefined field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      2,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      3,
+      \\"string\\"
+    ],
+    \\"message\\": \\"Expected undefined, received number\\"
   }
 ]"
 `;
@@ -1747,6 +2194,38 @@ exports[`array an array from an object with boolean, number and string with cons
       5,
       \\"string\\"
     ]
+  }
+]"
+`;
+
+exports[`array an array from an undefined field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1
+    ],
+    \\"message\\": \\"Expected undefined, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"undefined\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [
+      2
+    ],
+    \\"message\\": \\"Expected undefined, received number\\"
   }
 ]"
 `;

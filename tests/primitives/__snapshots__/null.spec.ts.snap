@@ -1,0 +1,37 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`null a null field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected null, received string\\"
+  }
+]"
+`;
+
+exports[`null a null field invalidates Invalidates NUMBER 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"number\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected null, received number\\"
+  }
+]"
+`;
+
+exports[`null a null field invalidates Invalidates STRING 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"null\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected null, received string\\"
+  }
+]"
+`;

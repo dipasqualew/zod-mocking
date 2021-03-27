@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`strings a URL field with a max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a URL field with a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -12,7 +12,7 @@ exports[`strings a URL field with a max invalidates Invalidates DEFAULT 1`] = `
 ]"
 `;
 
-exports[`strings a URL field with a max invalidates Invalidates MAX 1`] = `
+exports[`string a URL field with a max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"validation\\": \\"url\\",
@@ -31,7 +31,7 @@ exports[`strings a URL field with a max invalidates Invalidates MAX 1`] = `
 ]"
 `;
 
-exports[`strings a URL field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a URL field with a min and a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -43,7 +43,7 @@ exports[`strings a URL field with a min and a max invalidates Invalidates DEFAUL
 ]"
 `;
 
-exports[`strings a URL field with a min and a max invalidates Invalidates MAX 1`] = `
+exports[`string a URL field with a min and a max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"validation\\": \\"url\\",
@@ -62,7 +62,7 @@ exports[`strings a URL field with a min and a max invalidates Invalidates MAX 1`
 ]"
 `;
 
-exports[`strings a URL field with a min and a max invalidates Invalidates MIN 1`] = `
+exports[`string a URL field with a min and a max invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"validation\\": \\"url\\",
@@ -81,7 +81,7 @@ exports[`strings a URL field with a min and a max invalidates Invalidates MIN 1`
 ]"
 `;
 
-exports[`strings a URL field with a min invalidates Invalidates DEFAULT 1`] = `
+exports[`string a URL field with a min invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -93,7 +93,7 @@ exports[`strings a URL field with a min invalidates Invalidates DEFAULT 1`] = `
 ]"
 `;
 
-exports[`strings a URL field with a min invalidates Invalidates MIN 1`] = `
+exports[`string a URL field with a min invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"validation\\": \\"url\\",
@@ -112,7 +112,7 @@ exports[`strings a URL field with a min invalidates Invalidates MIN 1`] = `
 ]"
 `;
 
-exports[`strings a URL field without min nor max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a URL field without min nor max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -124,7 +124,7 @@ exports[`strings a URL field without min nor max invalidates Invalidates DEFAULT
 ]"
 `;
 
-exports[`strings a UUID field invalidates Invalidates DEFAULT 1`] = `
+exports[`string a UUID field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -136,7 +136,7 @@ exports[`strings a UUID field invalidates Invalidates DEFAULT 1`] = `
 ]"
 `;
 
-exports[`strings a field with max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a field with max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -148,7 +148,7 @@ exports[`strings a field with max invalidates Invalidates DEFAULT 1`] = `
 ]"
 `;
 
-exports[`strings a field with max invalidates Invalidates MAX 1`] = `
+exports[`string a field with max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"code\\": \\"too_big\\",
@@ -161,7 +161,7 @@ exports[`strings a field with max invalidates Invalidates MAX 1`] = `
 ]"
 `;
 
-exports[`strings a field with min === max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a field with min === max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -173,7 +173,7 @@ exports[`strings a field with min === max invalidates Invalidates DEFAULT 1`] = 
 ]"
 `;
 
-exports[`strings a field with min === max invalidates Invalidates MAX 1`] = `
+exports[`string a field with min === max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"code\\": \\"too_big\\",
@@ -186,7 +186,7 @@ exports[`strings a field with min === max invalidates Invalidates MAX 1`] = `
 ]"
 `;
 
-exports[`strings a field with min === max invalidates Invalidates MIN 1`] = `
+exports[`string a field with min === max invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"code\\": \\"too_small\\",
@@ -199,7 +199,7 @@ exports[`strings a field with min === max invalidates Invalidates MIN 1`] = `
 ]"
 `;
 
-exports[`strings a field with min and max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a field with min and max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -211,7 +211,7 @@ exports[`strings a field with min and max invalidates Invalidates DEFAULT 1`] = 
 ]"
 `;
 
-exports[`strings a field with min and max invalidates Invalidates MAX 1`] = `
+exports[`string a field with min and max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"code\\": \\"too_big\\",
@@ -224,7 +224,7 @@ exports[`strings a field with min and max invalidates Invalidates MAX 1`] = `
 ]"
 `;
 
-exports[`strings a field with min and max invalidates Invalidates MIN 1`] = `
+exports[`string a field with min and max invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"code\\": \\"too_small\\",
@@ -237,7 +237,7 @@ exports[`strings a field with min and max invalidates Invalidates MIN 1`] = `
 ]"
 `;
 
-exports[`strings a field with min invalidates Invalidates DEFAULT 1`] = `
+exports[`string a field with min invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -249,7 +249,7 @@ exports[`strings a field with min invalidates Invalidates DEFAULT 1`] = `
 ]"
 `;
 
-exports[`strings a field with min invalidates Invalidates MIN 1`] = `
+exports[`string a field with min invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"code\\": \\"too_small\\",
@@ -262,7 +262,7 @@ exports[`strings a field with min invalidates Invalidates MIN 1`] = `
 ]"
 `;
 
-exports[`strings a field without min nor max invalidates Invalidates DEFAULT 1`] = `
+exports[`string a field without min nor max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -274,7 +274,7 @@ exports[`strings a field without min nor max invalidates Invalidates DEFAULT 1`]
 ]"
 `;
 
-exports[`strings an email field with a max invalidates Invalidates DEFAULT 1`] = `
+exports[`string an email field with a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -286,7 +286,7 @@ exports[`strings an email field with a max invalidates Invalidates DEFAULT 1`] =
 ]"
 `;
 
-exports[`strings an email field with a max invalidates Invalidates MAX 1`] = `
+exports[`string an email field with a max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"validation\\": \\"email\\",
@@ -305,7 +305,7 @@ exports[`strings an email field with a max invalidates Invalidates MAX 1`] = `
 ]"
 `;
 
-exports[`strings an email field with a min and a max invalidates Invalidates DEFAULT 1`] = `
+exports[`string an email field with a min and a max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -317,7 +317,7 @@ exports[`strings an email field with a min and a max invalidates Invalidates DEF
 ]"
 `;
 
-exports[`strings an email field with a min and a max invalidates Invalidates MAX 1`] = `
+exports[`string an email field with a min and a max invalidates Invalidates MAX 1`] = `
 "[
   {
     \\"validation\\": \\"email\\",
@@ -336,7 +336,7 @@ exports[`strings an email field with a min and a max invalidates Invalidates MAX
 ]"
 `;
 
-exports[`strings an email field with a min and a max invalidates Invalidates MIN 1`] = `
+exports[`string an email field with a min and a max invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"validation\\": \\"email\\",
@@ -355,7 +355,7 @@ exports[`strings an email field with a min and a max invalidates Invalidates MIN
 ]"
 `;
 
-exports[`strings an email field with a min invalidates Invalidates DEFAULT 1`] = `
+exports[`string an email field with a min invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
@@ -367,7 +367,7 @@ exports[`strings an email field with a min invalidates Invalidates DEFAULT 1`] =
 ]"
 `;
 
-exports[`strings an email field with a min invalidates Invalidates MIN 1`] = `
+exports[`string an email field with a min invalidates Invalidates MIN 1`] = `
 "[
   {
     \\"validation\\": \\"email\\",
@@ -386,7 +386,7 @@ exports[`strings an email field with a min invalidates Invalidates MIN 1`] = `
 ]"
 `;
 
-exports[`strings an email field without min nor max invalidates Invalidates DEFAULT 1`] = `
+exports[`string an email field without min nor max invalidates Invalidates DEFAULT 1`] = `
 "[
   {
     \\"code\\": \\"invalid_type\\",
