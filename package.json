@@ -22,6 +22,7 @@
     "build:compile": "tsc",
     "build:package": "cp package.json README.md LICENSE ./dist",
     "build": "yarn build:compile && yarn build:package",
+    "lint": "yarn eslint .",
     "test": "jest --colors"
   },
   "dependencies": {
