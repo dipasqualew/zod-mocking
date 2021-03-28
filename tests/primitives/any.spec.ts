@@ -1,19 +1,9 @@
-import * as any from '../../src/primitives/any';
+import { DeepPartial } from '../../src/types';
 import { anyFields } from '../fields';
-import { invalidateGroup, validateGroup } from '../mixins';
+import { overrideTest, validationTests } from '../mixins';
 
 describe('any', () => {
-  anyFields.forEach(([description, field]) => {
-    describe(description, () => {
-      describe('validates', () => {
-        const valid = any.mockValid(field);
-        validateGroup(field, valid);
-      });
-
-      describe('invalidates', () => {
-        const valid = any.mockInvalid(field);
-        invalidateGroup(field, valid);
-      });
-    });
-  });
+  validationTests(anyFields);
+  overrideTest(anyFields, 'Dante Alighieri' as DeepPartial<unknown>);
+  overrideTest(anyFields, 1265 as DeepPartial<unknown>);
 });

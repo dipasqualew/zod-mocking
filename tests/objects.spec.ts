@@ -1,45 +1,53 @@
 import * as zod from 'zod';
 
-import { generateInvalidObjects, generateValidObjects } from '../src/fields';
+import { mock } from '../src/fields';
 import { objectFields } from './fields';
-import { invalidateGroup, validateGroup } from './mixins';
+import { invalidateGroup, validateGroup, validationTests } from './mixins';
+
+const complexField = zod.object({
+  root: zod.object({
+    nested: zod.object({
+      boolean: zod.boolean(),
+      url: zod.string().url(),
+      uuid: zod.string().uuid(),
+      max: zod.number().max(10),
+    }),
+  }),
+  string: zod.string().min(10).max(20),
+});
 
 describe('object', () => {
-  objectFields.forEach(([description, field]) => {
-    describe(description, () => {
-      describe('validates', () => {
-        const valid = generateValidObjects(field);
-        validateGroup(field, valid);
-      });
-
-      describe('invalidates', () => {
-        const invalid = generateInvalidObjects(field);
-        invalidateGroup(field, invalid);
-      });
-    });
-  });
+  validationTests(objectFields);
 
   describe('a complex example', () => {
-    const field = zod.object({
-      root: zod.object({
-        nested: zod.object({
-          boolean: zod.boolean(),
-          url: zod.string().url(),
-          uuid: zod.string().uuid(),
-          max: zod.number().max(10),
-        }),
-      }),
-      string: zod.string().min(10).max(20),
-    });
+    const { valid, invalid } = mock(complexField);
 
     describe('validates', () => {
-      const valid = generateValidObjects(field);
-      validateGroup(field, valid);
+      validateGroup(complexField, valid);
     });
 
     describe('invalidates', () => {
-      const invalid = generateInvalidObjects(field);
-      invalidateGroup(field, invalid);
+      invalidateGroup(complexField, invalid);
+    });
+  });
+
+  describe('overrides', () => {
+    const override = {
+      root: {
+        nested: {
+          max: 3,
+        },
+      },
+    };
+
+    describe('overrides the key', () => {
+      const { valid } = mock(complexField, { override });
+
+      Object.entries(valid).forEach(([key, value]) => {
+        it(`Overrides ${key} root.nested.max`, () => {
+          expect(value.root.nested.max).toEqual(override.root.nested.max);
+        });
+      });
     });
   });
 });

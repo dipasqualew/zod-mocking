@@ -1,19 +1,12 @@
-import * as number from '../../src/primitives/number';
 import { numberFields } from '../fields';
-import { invalidateGroup, validateGroup } from '../mixins';
+import { overrideTest, validationTests } from '../mixins';
 
 describe('number', () => {
-  numberFields.forEach(([description, field]) => {
-    describe(description, () => {
-      describe('validates', () => {
-        const valid = number.mockValid(field);
-        validateGroup(field, valid);
-      });
-
-      describe('invalidates', () => {
-        const valid = number.mockInvalid(field);
-        invalidateGroup(field, valid);
-      });
-    });
-  });
+  validationTests(numberFields);
+  overrideTest(numberFields, 0);
+  overrideTest(numberFields, 1);
+  overrideTest(numberFields, -1);
+  overrideTest(numberFields, Math.PI);
+  overrideTest(numberFields, Infinity);
+  overrideTest(numberFields, -Infinity);
 });
