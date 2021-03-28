@@ -1,19 +1,10 @@
-import { generateInvalidArrays, generateValidArrays } from '../src/fields';
+import { DeepPartial } from '../src/types';
 import { arrayFields } from './fields';
-import { invalidateGroup, validateGroup } from './mixins';
+import { overrideTest, validationTests } from './mixins';
 
 describe('array', () => {
-  arrayFields.forEach(([description, field]) => {
-    describe(description, () => {
-      describe('validates', () => {
-        const valid = generateValidArrays(field);
-        validateGroup(field, valid);
-      });
-
-      describe('invalidates', () => {
-        const valid = generateInvalidArrays(field);
-        invalidateGroup(field, valid);
-      });
-    });
-  });
+  validationTests(arrayFields);
+  overrideTest(arrayFields, [1, 2, 3] as DeepPartial<unknown>[]);
+  overrideTest(arrayFields, ['a', 'b', 'c'] as DeepPartial<unknown>[]);
+  overrideTest(arrayFields, [] as DeepPartial<unknown>[]);
 });

@@ -10,59 +10,63 @@ import * as znull from './primitives/null';
 import * as number from './primitives/number';
 import * as string from './primitives/string';
 import * as zundefined from './primitives/undefined';
-
-/**
- * Mock generator function
- */
-export type MockGenerator = () => { DEFAULT?: unknown } & Record<string, unknown>;
+import { DeepPartial, MockOptions } from './types';
 
 /**
  * Returns the generator of valid values
  * for the given field
  *
  * @param field
+ * @param options
  */
-export const getValidGenerator = <T extends zod.ZodAny>(field: T): MockGenerator => {
-  if (field instanceof zod.ZodString) {
-    return () => string.mockValid(field);
+export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, zod.infer<T>> => {
+  if (field instanceof zod.ZodObject) {
+    return generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>, options);
   }
+
+  if ('override' in options && options.override !== undefined) {
+    const value = options.override instanceof Function ? options.override() : options.override;
+
+    return { DEFAULT: value };
+  }
+
+  if (field instanceof zod.ZodString) {
+    return string.mockValid(field);
+  }
+
   if (field instanceof zod.ZodNumber) {
-    return () => number.mockValid(field);
+    return number.mockValid(field);
   }
 
   if (field instanceof zod.ZodBoolean) {
-    return () => boolean.mockValid(field);
+    return boolean.mockValid(field);
   }
 
   if (field instanceof zod.ZodArray) {
-    return () => generateValidArrays(field);
-  }
-
-  if (field instanceof zod.ZodObject) {
-    return () => generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>);
+    return generateValidArrays(field);
   }
 
   if (field instanceof zod.ZodDate) {
-    return () => date.mockValid(field);
+    return date.mockValid(field);
   }
 
   if (field instanceof zod.ZodBigInt) {
-    return () => bigint.mockValid(field);
+    return bigint.mockValid(field);
   }
 
   if (field instanceof zod.ZodLiteral) {
-    return () => literal.mockValid(field);
+    return literal.mockValid(field);
   }
 
   if (field instanceof zod.ZodNull) {
-    return () => znull.mockValid(field);
+    return znull.mockValid(field);
   }
 
   if (field instanceof zod.ZodUndefined || field instanceof zod.ZodVoid) {
-    return () => zundefined.mockValid(field);
+    return zundefined.mockValid(field);
   }
 
-  return () => any.mockValid(field);
+  return any.mockValid(field);
 };
 
 /**
@@ -70,73 +74,56 @@ export const getValidGenerator = <T extends zod.ZodAny>(field: T): MockGenerator
  * for the given field
  *
  * @param field
+ * @param options
  */
-export const getInvalidGenerator = <T extends zod.ZodAny>(field: T): MockGenerator => {
+export const mockInvalid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, DeepPartial<zod.infer<T>>> => {
+  if (field instanceof zod.ZodObject) {
+    return generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>, options);
+  }
+
+  if ('override' in options && options.override !== undefined) {
+    const value = options.override instanceof Function ? options.override() : options.override;
+
+    return { DEFAULT: value };
+  }
+
   if (field instanceof zod.ZodString) {
-    return () => string.mockInvalid(field);
+    return string.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodNumber) {
-    return () => number.mockInvalid(field);
+    return number.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodBoolean) {
-    return () => boolean.mockInvalid(field);
+    return boolean.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodArray) {
-    return () => generateInvalidArrays(field);
-  }
-
-  if (field instanceof zod.ZodObject) {
-    return () => generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>);
+    return generateInvalidArrays(field);
   }
 
   if (field instanceof zod.ZodDate) {
-    return () => date.mockInvalid(field);
+    return date.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodLiteral) {
-    return () => literal.mockInvalid(field);
+    return literal.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodBigInt) {
-    return () => bigint.mockInvalid(field);
+    return bigint.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodNull) {
-    return () => znull.mockInvalid(field);
+    return znull.mockInvalid(field);
   }
 
   if (field instanceof zod.ZodUndefined || field instanceof zod.ZodVoid) {
-    return () => zundefined.mockInvalid(field);
+    return zundefined.mockInvalid(field);
   }
 
-  return () => any.mockInvalid(field);
-};
-
-/**
- * Returns the valid mocks
- * for the given field
- *
- * @param field
- */
-export const mockValid = <T extends zod.ZodAny>(field: T) => {
-  const generator = getValidGenerator(field);
-
-  return generator();
-};
-
-/**
- * Returns the invalid mocks
- * for the given field
- *
- * @param field
- */
-export const mockInvalid = <T extends zod.ZodAny>(field: T) => {
-  const generator = getInvalidGenerator(field);
-
-  return generator();
+  return any.mockInvalid(field);
 };
 
 /**
@@ -144,11 +131,12 @@ export const mockInvalid = <T extends zod.ZodAny>(field: T) => {
  * for the given field
  *
  * @param field
+ * @param options
  */
-export const mock = <T extends zod.ZodAny>(field: T) => {
+export const mock = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}) => {
   return {
-    valid: mockValid(field),
-    invalid: mockInvalid(field),
+    valid: mockValid(field, options),
+    invalid: mockInvalid(field, options),
   };
 };
 
@@ -159,8 +147,7 @@ export const mock = <T extends zod.ZodAny>(field: T) => {
  * @param field
  */
 export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>) => {
-  const generator = getValidGenerator(field._def.type);
-  const items = generator();
+  const items = mockValid(field._def.type);
 
   return {
     DEFAULT: Object.values(items),
@@ -173,9 +160,8 @@ export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>
  *
  * @param field
  */
-export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>) => {
-  const generator = getInvalidGenerator(field._def.type);
-  const items = generator();
+export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>): Record<string, DeepPartial<zod.TypeOf<T>>[]> => {
+  const items = mockInvalid(field._def.type);
 
   const values = Object.values(items);
 
@@ -193,18 +179,23 @@ export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<
  * from the given ZodObject definition
  *
  * @param field
+ * @param options
  */
-export const generateValidObjects = <T extends zod.ZodRawShape>(field: zod.ZodObject<T>) => {
+export const generateValidObjects = <T extends zod.ZodRawShape>(field: zod.ZodObject<T>, options: MockOptions<unknown> = {}) => {
   type Shape = zod.infer<typeof field>;
 
   const defaultMock: Partial<Shape> = {};
   const variations: Record<string, Record<string, unknown>> = {};
 
   Object.entries(field.shape).forEach((entry) => {
-    const key = entry[0] as keyof Shape;
-    const def = entry[1] as Shape[keyof Shape];
-    const generator = getValidGenerator(def);
-    const validMocks = generator();
+    type Key = keyof Shape;
+    type Value = Shape[keyof Shape];
+    const key = entry[0] as Key;
+    const def = entry[1] as Value;
+    const newOptions = { ...options } as MockOptions<Value>;
+    newOptions.override = ((options.override || {}) as Record<string, Value>)[entry[0]];
+
+    const validMocks = mockValid(def, newOptions);
 
     defaultMock[key] = validMocks.DEFAULT as Shape[keyof Shape];
     variations[entry[0]] = validMocks;
@@ -231,8 +222,9 @@ export const generateValidObjects = <T extends zod.ZodRawShape>(field: zod.ZodOb
  * from the given ZodObject definition
  *
  * @param field
+ * @param options
  */
-export const generateInvalidObjects = <T extends zod.ZodRawShape>(field: zod.ZodObject<T>) => {
+export const generateInvalidObjects = <T extends zod.ZodRawShape>(field: zod.ZodObject<T>, options: MockOptions<unknown> = {}) => {
   type Shape = zod.infer<typeof field>;
 
   const valid = generateValidObjects(field).DEFAULT;
@@ -241,10 +233,14 @@ export const generateInvalidObjects = <T extends zod.ZodRawShape>(field: zod.Zod
   const variations: Record<string, Record<string, unknown>> = {};
 
   Object.entries(field.shape).forEach((entry) => {
-    const key = entry[0] as keyof Shape;
-    const def = entry[1] as Shape[keyof Shape];
-    const generator = getInvalidGenerator(def);
-    const invalidMocks = generator();
+    type Key = keyof Shape;
+    type Value = Shape[keyof Shape];
+    const key = entry[0] as Key;
+    const def = entry[1] as Value;
+    const newOptions = { ...options } as MockOptions<Value>;
+    newOptions.override = ((options.override || {}) as Record<string, Value>)[entry[0]];
+
+    const invalidMocks = mockInvalid(def, newOptions);
 
     if ('DEFAULT' in invalidMocks) {
       defaultMock[key] = invalidMocks.DEFAULT as Shape[keyof Shape];
@@ -252,7 +248,7 @@ export const generateInvalidObjects = <T extends zod.ZodRawShape>(field: zod.Zod
     }
   });
 
-  const mocks: [string, unknown][] = [];
+  const mocks: [string, DeepPartial<Shape>][] = [];
 
   if (Object.keys(defaultMock).length) {
     mocks.push(['DEFAULT', defaultMock]);
@@ -267,5 +263,5 @@ export const generateInvalidObjects = <T extends zod.ZodRawShape>(field: zod.Zod
     });
   });
 
-  return Object.fromEntries(mocks) as { DEFAULT: unknown } & Record<string, unknown>;
+  return Object.fromEntries(mocks) as { DEFAULT: DeepPartial<Shape> } & Record<string, DeepPartial<Shape>>;
 };
