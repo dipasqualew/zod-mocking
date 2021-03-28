@@ -1,5 +1,6 @@
 import type { ZodBigInt } from 'zod';
 
+import type { MockOptions } from '../types';
 import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
 
 /**
@@ -7,13 +8,14 @@ import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
  * from the given ZodBigInt definition
  *
  * @param _field
+ * @param options
  */
-export const mockValid = (_field: ZodBigInt) => {
+export const mockValid = (_field: ZodBigInt, options: MockOptions<BigInt>) => {
   const min = MIN_INTEGER;
   const max = MAX_INTEGER;
 
   const numbers = {
-    DEFAULT: BigInt(getRandomNumber(min, max, true)),
+    DEFAULT: BigInt(getRandomNumber(min, max, true, options.rng)),
     MIN: BigInt(min),
     MAX: BigInt(max),
   };
@@ -26,14 +28,15 @@ export const mockValid = (_field: ZodBigInt) => {
  * from the given ZodBigInt definition
  *
  * @param _field
+ * @param options
  */
-export const mockInvalid = (_field: ZodBigInt) => {
+export const mockInvalid = (_field: ZodBigInt, options: MockOptions<BigInt>) => {
   const min = MIN_INTEGER;
   const max = MAX_INTEGER;
 
   return {
     DEFAULT: 'not-a-number',
-    NUMBER: getRandomNumber(min, max, true),
-    FLOAT: getRandomNumber(min, max, true) + 0.1,
+    NUMBER: getRandomNumber(min, max, true, options.rng),
+    FLOAT: getRandomNumber(min, max, true, options.rng) + 0.1,
   };
 };

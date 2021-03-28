@@ -11,6 +11,7 @@ import * as number from './primitives/number';
 import * as string from './primitives/string';
 import * as zundefined from './primitives/undefined';
 import { DeepPartial, MockOptions } from './types';
+import { getRng } from './utils';
 
 /**
  * Returns the generator of valid values
@@ -20,53 +21,58 @@ import { DeepPartial, MockOptions } from './types';
  * @param options
  */
 export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, zod.infer<T>> => {
+  const context: MockOptions<zod.infer<T>> = {
+    ...options,
+    rng: getRng(options.seed || null),
+  };
+
   if (field instanceof zod.ZodObject) {
-    return generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>, options);
+    return generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>, context);
   }
 
-  if ('override' in options && options.override !== undefined) {
-    const value = options.override instanceof Function ? options.override() : options.override;
+  if ('override' in context && context.override !== undefined) {
+    const value = context.override instanceof Function ? context.override() : context.override;
 
     return { DEFAULT: value };
   }
 
   if (field instanceof zod.ZodString) {
-    return string.mockValid(field);
+    return string.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodNumber) {
-    return number.mockValid(field);
+    return number.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodBoolean) {
-    return boolean.mockValid(field);
+    return boolean.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodArray) {
-    return generateValidArrays(field);
+    return generateValidArrays(field, context);
   }
 
   if (field instanceof zod.ZodDate) {
-    return date.mockValid(field);
+    return date.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodBigInt) {
-    return bigint.mockValid(field);
+    return bigint.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodLiteral) {
-    return literal.mockValid(field);
+    return literal.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodNull) {
-    return znull.mockValid(field);
+    return znull.mockValid(field, context);
   }
 
   if (field instanceof zod.ZodUndefined || field instanceof zod.ZodVoid) {
-    return zundefined.mockValid(field);
+    return zundefined.mockValid(field, context);
   }
 
-  return any.mockValid(field);
+  return any.mockValid(field, context);
 };
 
 /**
@@ -77,53 +83,58 @@ export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<z
  * @param options
  */
 export const mockInvalid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, DeepPartial<zod.infer<T>>> => {
+  const context: MockOptions<zod.infer<T>> = {
+    ...options,
+    rng: getRng(options.seed || null),
+  };
+
   if (field instanceof zod.ZodObject) {
-    return generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>, options);
+    return generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>, context);
   }
 
-  if ('override' in options && options.override !== undefined) {
-    const value = options.override instanceof Function ? options.override() : options.override;
+  if ('override' in context && context.override !== undefined) {
+    const value = context.override instanceof Function ? context.override() : context.override;
 
     return { DEFAULT: value };
   }
 
   if (field instanceof zod.ZodString) {
-    return string.mockInvalid(field);
+    return string.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodNumber) {
-    return number.mockInvalid(field);
+    return number.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodBoolean) {
-    return boolean.mockInvalid(field);
+    return boolean.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodArray) {
-    return generateInvalidArrays(field);
+    return generateInvalidArrays(field, context);
   }
 
   if (field instanceof zod.ZodDate) {
-    return date.mockInvalid(field);
+    return date.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodLiteral) {
-    return literal.mockInvalid(field);
+    return literal.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodBigInt) {
-    return bigint.mockInvalid(field);
+    return bigint.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodNull) {
-    return znull.mockInvalid(field);
+    return znull.mockInvalid(field, context);
   }
 
   if (field instanceof zod.ZodUndefined || field instanceof zod.ZodVoid) {
-    return zundefined.mockInvalid(field);
+    return zundefined.mockInvalid(field, context);
   }
 
-  return any.mockInvalid(field);
+  return any.mockInvalid(field, context);
 };
 
 /**
@@ -145,9 +156,10 @@ export const mock = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.in
  * from the given ZodArray definition
  *
  * @param field
+ * @param options
  */
-export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>) => {
-  const items = mockValid(field._def.type);
+export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>, options: MockOptions<zod.infer<T>>) => {
+  const items = mockValid(field._def.type, options);
 
   return {
     DEFAULT: Object.values(items),
@@ -159,9 +171,10 @@ export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>
  * from the given ZodArray definition
  *
  * @param field
+ * @param options
  */
-export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>): Record<string, DeepPartial<zod.TypeOf<T>>[]> => {
-  const items = mockInvalid(field._def.type);
+export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>, options: MockOptions<zod.infer<T>>): Record<string, DeepPartial<zod.TypeOf<T>>[]> => {
+  const items = mockInvalid(field._def.type, options);
 
   const values = Object.values(items);
 

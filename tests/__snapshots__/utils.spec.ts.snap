@@ -1,0 +1,9 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`utils getUUID with a seed returns a sequence of deterministic UUIDs 1`] = `
+Array [
+  "c994787c-3b4c-5e2f-81de-33ab9b048e46",
+  "2bd4f558-ee91-5183-bcf8-c5663aa32b54",
+  "9d6fc420-dfc7-5aeb-838c-4b94e6d797f2",
+]
+`;

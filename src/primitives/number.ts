@@ -1,5 +1,6 @@
 import type { ZodNumber } from 'zod';
 
+import type { MockOptions } from '../types';
 import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
 
 /**
@@ -7,14 +8,15 @@ import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
  * from the given ZodNumber definition
  *
  * @param field
+ * @param options
  */
-export const mockValid = (field: ZodNumber) => {
+export const mockValid = (field: ZodNumber, options: MockOptions<number>) => {
   const min = field._def.minimum?.value || MIN_INTEGER;
   const max = field._def.maximum?.value || MAX_INTEGER;
   const integer = Boolean(field._def.isInteger);
 
   const numbers = {
-    DEFAULT: getRandomNumber(min, max, integer),
+    DEFAULT: getRandomNumber(min, max, integer, options.rng),
     MIN: min,
     MAX: max,
   };
@@ -27,8 +29,9 @@ export const mockValid = (field: ZodNumber) => {
  * from the given ZodNumber definition
  *
  * @param field
+ * @param options
  */
-export const mockInvalid = (field: ZodNumber) => {
+export const mockInvalid = (field: ZodNumber, options: MockOptions<number>) => {
   const integer = Boolean(field._def.isInteger);
 
   const strings: [string, string | number][] = [
@@ -36,17 +39,17 @@ export const mockInvalid = (field: ZodNumber) => {
   ];
 
   if (field._def.minimum) {
-    const underMin = getRandomNumber(MIN_INTEGER, field._def.minimum.value - 1);
+    const underMin = getRandomNumber(MIN_INTEGER, field._def.minimum.value - 1, false, options.rng);
     strings.push(['MIN', underMin]);
   }
 
   if (field._def.maximum) {
-    const overMax = getRandomNumber(field._def.maximum.value + 1, MAX_INTEGER);
+    const overMax = getRandomNumber(field._def.maximum.value + 1, MAX_INTEGER, false, options.rng);
     strings.push(['MAX', overMax]);
   }
 
   if (integer) {
-    const float = getRandomNumber(field._def.minimum?.value || 0, field._def.maximum?.value || 20, true) + 0.1;
+    const float = getRandomNumber(field._def.minimum?.value || 0, field._def.maximum?.value || 20, true, options.rng) + 0.1;
     strings.push(['FLOAT', float]);
   }
 

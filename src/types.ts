@@ -1,3 +1,9 @@
+/**
+ * Represents a seed value
+ */
+export type Seed = number | boolean | null;
+
+export type RNG = () => number;
 
 /**
  * Recursively applies Partial
@@ -30,7 +36,9 @@ export type PartialKeys<T> = {
  * that can be passed to a mock function
  */
 export interface MockOptions<T> {
-  override?: DeepPartial<T> | (() => DeepPartial<T>)
+  override?: DeepPartial<T> | (() => DeepPartial<T>);
+  seed?: Seed;
+  rng?: RNG;
 }
 
 /**
