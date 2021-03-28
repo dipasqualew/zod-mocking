@@ -397,3 +397,15 @@ exports[`string an email field without min nor max invalidates Invalidates DEFAU
   }
 ]"
 `;
+
+exports[`string effects Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"string\\",
+    \\"received\\": \\"null\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected string, received null\\"
+  }
+]"
+`;
