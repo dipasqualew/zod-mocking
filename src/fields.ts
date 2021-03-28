@@ -21,10 +21,11 @@ import { getRng } from './utils';
  * @param options
  */
 export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, zod.infer<T>> => {
-  const context: MockOptions<zod.infer<T>> = {
-    ...options,
-    rng: getRng(options.seed || null),
-  };
+  const context: MockOptions<zod.infer<T>> = { ...options };
+
+  if (!context.rng) {
+    context.rng = getRng(context.seed || null);
+  }
 
   if (field instanceof zod.ZodObject) {
     return generateValidObjects(field as zod.ZodObject<zod.ZodRawShape>, context);
@@ -83,10 +84,11 @@ export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<z
  * @param options
  */
 export const mockInvalid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, DeepPartial<zod.infer<T>>> => {
-  const context: MockOptions<zod.infer<T>> = {
-    ...options,
-    rng: getRng(options.seed || null),
-  };
+  const context: MockOptions<zod.infer<T>> = { ...options };
+
+  if (!context.rng) {
+    context.rng = getRng(context.seed || null);
+  }
 
   if (field instanceof zod.ZodObject) {
     return generateInvalidObjects(field as zod.ZodObject<zod.ZodRawShape>, context);

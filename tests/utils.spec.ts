@@ -1,4 +1,6 @@
-import { getUUID, mulberry32 } from '../src/utils';
+import {
+  ALPHABET, getString, getUUID, mulberry32,
+} from '../src/utils';
 
 describe('utils', () => {
   describe('mulberry32', () => {
@@ -40,6 +42,45 @@ describe('utils', () => {
 
         expect(set.size).toEqual((i + 1) * 2);
       }
+    });
+  });
+
+  describe('getString', () => {
+    it('generates a random string from Math.random', () => {
+      const control = 'Dante Alighieri';
+      const string1 = getString(10, ALPHABET, Math.random);
+      const string2 = getString(10, ALPHABET, Math.random);
+
+      expect(string1).not.toEqual(control);
+      expect(string1).not.toEqual(string2);
+    });
+
+    it('generates two random strings from two mulberry32 generators', () => {
+      const control = 'Dante Alighieri';
+      const string1 = getString(10, ALPHABET, mulberry32(1));
+      const string2 = getString(10, ALPHABET, mulberry32(2));
+
+      expect(string1).not.toEqual(control);
+      expect(string1).not.toEqual(string2);
+    });
+
+    it('generates the same string from the same mulberry32 generator', () => {
+      const control = 'Dante Alighieri';
+      const string1 = getString(10, ALPHABET, mulberry32(1));
+      const string2 = getString(10, ALPHABET, mulberry32(1));
+
+      expect(string1).not.toEqual(control);
+      expect(string1).toEqual(string2);
+    });
+
+    it('generates two random strings from subsequent invocations of the same mulberry32 generator', () => {
+      const control = 'Dante Alighieri';
+      const generator = mulberry32(3);
+      const string1 = getString(10, ALPHABET, generator);
+      const string2 = getString(10, ALPHABET, generator);
+
+      expect(string1).not.toEqual(control);
+      expect(string1).not.toEqual(string2);
     });
   });
 

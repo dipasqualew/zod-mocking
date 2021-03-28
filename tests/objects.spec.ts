@@ -50,4 +50,30 @@ describe('object', () => {
       });
     });
   });
+
+  describe('rng', () => {
+    const stringObject = zod.object({
+      a: zod.string(),
+      b: zod.string().min(10),
+      c: zod.string().max(20),
+      d: zod.string().min(10).max(20),
+    });
+
+    describe('creates different strings', () => {
+      const { valid } = mock(stringObject, { seed: 49 });
+
+      Object.entries(valid).forEach(([description, value]) => {
+        it(description, () => {
+          const set = new Set([
+            value.a,
+            value.b,
+            value.c,
+            value.d,
+          ]);
+
+          expect(set.size).toEqual(4);
+        });
+      });
+    });
+  });
 });
