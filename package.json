@@ -1,7 +1,8 @@
 {
   "name": "zod-mocking",
   "private": false,
-  "version": "0.1.0",
+  "version": "0.2.1",
+  "license": "MIT",
   "description": "Generate valid or invalid mocks for your tests, directly from your zod models",
   "main": "fields.js",
   "author": {
@@ -21,7 +22,7 @@
   },
   "scripts": {
     "build:compile": "tsc",
-    "build:package": "cp package.json README.md LICENSE ./dist",
+    "build:package": "cp .gitignore package.json README.md LICENSE ./dist",
     "build": "yarn build:compile && yarn build:package",
     "lint": "yarn eslint .",
     "test": "jest --colors"
