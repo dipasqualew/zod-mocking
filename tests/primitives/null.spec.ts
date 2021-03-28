@@ -1,7 +1,8 @@
 import { nullFields } from '../fields';
-import { overrideTest, validationTests } from '../mixins';
+import { overrideTest, seedTest, validationTests } from '../mixins';
 
 describe('null', () => {
   validationTests(nullFields);
   overrideTest(nullFields, null);
+  seedTest(nullFields);
 });

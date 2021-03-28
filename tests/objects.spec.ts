@@ -41,7 +41,7 @@ describe('object', () => {
     };
 
     describe('overrides the key', () => {
-      const { valid } = mock(complexField, { override });
+      const { valid } = mock(complexField, { override, seed: 1 });
 
       Object.entries(valid).forEach(([key, value]) => {
         it(`Overrides ${key} root.nested.max`, () => {

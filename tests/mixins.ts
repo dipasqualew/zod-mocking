@@ -1,3 +1,4 @@
+import superjson from 'superjson';
 import * as zod from 'zod';
 
 import { mock } from '../src/fields';
@@ -94,6 +95,34 @@ export const overrideTest = <T extends zod.ZodAny>(instances: [string, T][], ove
               expect(value).toEqual(override);
             });
           });
+        });
+      });
+    });
+  });
+};
+
+/**
+ * Tests overrides
+ *
+ * @param instances
+ */
+export const seedTest = <T extends zod.ZodAny>(instances: [string, T][]) => {
+  instances.forEach(([description, field]) => {
+    describe(description, () => {
+      describe('generates deterministic values', () => {
+        const batch1 = mock(field, { seed: 99 });
+        const batch2 = mock(field, { seed: 99 });
+
+        it('the valid mocks', () => {
+          // needs to be serialized because of jest same ref problems
+          // needs superjson because of bigint
+          expect(superjson.stringify(batch1.valid)).toEqual(superjson.stringify(batch2.valid));
+        });
+
+        it('the invalid mocks', () => {
+          // needs to be serialized because of jest same ref problems
+          // needs superjson because of bigint
+          expect(superjson.stringify(batch1.invalid)).toEqual(superjson.stringify(batch2.invalid));
         });
       });
     });

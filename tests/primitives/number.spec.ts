@@ -1,5 +1,5 @@
 import { numberFields } from '../fields';
-import { overrideTest, validationTests } from '../mixins';
+import { overrideTest, seedTest, validationTests } from '../mixins';
 
 describe('number', () => {
   validationTests(numberFields);
@@ -9,4 +9,5 @@ describe('number', () => {
   overrideTest(numberFields, Math.PI);
   overrideTest(numberFields, Infinity);
   overrideTest(numberFields, -Infinity);
+  seedTest(numberFields);
 });
