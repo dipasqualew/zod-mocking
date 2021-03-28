@@ -37,6 +37,10 @@ export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<z
     return { DEFAULT: value };
   }
 
+  if (field instanceof zod.ZodEffects) {
+    return applyEffectsValid(field, context);
+  }
+
   if (field instanceof zod.ZodString) {
     return string.mockValid(field, context);
   }
@@ -100,6 +104,10 @@ export const mockInvalid = <T extends zod.ZodAny>(field: T, options: MockOptions
     return { DEFAULT: value };
   }
 
+  if (field instanceof zod.ZodEffects) {
+    return applyEffectsInvalid(field, context);
+  }
+
   if (field instanceof zod.ZodString) {
     return string.mockInvalid(field, context);
   }
@@ -152,6 +160,71 @@ export const mock = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.in
     invalid: mockInvalid(field, options),
   };
 };
+
+/**
+ * Applies the effects to the value
+ *
+ * @param effects
+ * @param value
+ */
+// eslint-disable-next-line @typescript-eslint/no-explicit-any
+export const applyEffects = <T extends zod.ZodAny>(effects: (zod.Effect<any> | zod.ZodTransformer<T>)[], value: any) => {
+  let transformed = value;
+
+  for (let i = 0; i < effects.length; i += 1) {
+    const effect = effects[i];
+
+    if ('transform' in effect) {
+      transformed = effect.transform(transformed);
+    }
+  }
+
+  return transformed;
+};
+
+/**
+ * Processes a ZodEffects object
+ *
+ * @param field
+ * @param options
+ */
+export const applyEffectsValid = <T extends zod.ZodAny>(field: zod.ZodEffects<T>, options: MockOptions<zod.infer<T>> = {}) => {
+  const mocks = mockValid(field._def.schema, options);
+  const effects = field._def.effects;
+
+  if (!effects || !effects.length) {
+    return mocks;
+  }
+
+  return Object.fromEntries(
+    Object.entries(mocks).map(([key, value]) => [key, applyEffects(effects as unknown as zod.ZodTransformer<T>[], value)]),
+  );
+};
+
+/**
+ * Processes a ZodEffects object
+ *
+ * @param field
+ * @param options
+ */
+export const applyEffectsInvalid = <T extends zod.ZodAny>(field: zod.ZodEffects<T>, options: MockOptions<zod.infer<T>> = {}) => {
+  const mocks = mockInvalid(field._def.schema, options);
+
+  // Don't bother transforming
+
+  // const effects = field._def.effects;
+
+  // if (!effects || !effects.length) {
+  //   return mocks;
+  // }
+
+  // return Object.fromEntries(
+  //   Object.entries(mocks).map(([key, value]) => [key, applyEffects(effects as unknown as zod.ZodTransformer<T>[], value)]),
+  // );
+
+  return mocks;
+};
+
 
 /**
  * Generates valid arrays
