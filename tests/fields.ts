@@ -39,6 +39,10 @@ export const numberFields: NumberTestCase[] = [
   ['a field with max', zod.number().max(10)],
   ['a field with min and max', zod.number().min(10).max(20)],
   ['a field with min === max', zod.number().min(10).max(10)],
+  ['a positive field', zod.number().positive()],
+  ['a negative field', zod.number().negative()],
+  ['a nonpositive field', zod.number().nonpositive()],
+  ['a nonnegative field', zod.number().nonnegative()],
   ['an integer field', zod.number().int()],
 ];
 
