@@ -1125,6 +1125,135 @@ exports[`object an object from a field without min or max invalidates Invalidate
 ]"
 `;
 
+exports[`object an object from a negative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a negative field invalidates Invalidates number__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a negative field invalidates Invalidates number__MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be less than 0\\",
+    \\"path\\": [
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`object an object from a nonnegative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a nonnegative field invalidates Invalidates number__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a nonnegative field invalidates Invalidates number__MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 0\\",
+    \\"path\\": [
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`object an object from a nonpositive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a nonpositive field invalidates Invalidates number__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a nonpositive field invalidates Invalidates number__MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 0\\",
+    \\"path\\": [
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
 exports[`object an object from a null field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -1205,6 +1334,49 @@ exports[`object an object from a number literal invalidates Invalidates string__
       \\"string\\"
     ],
     \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from a positive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a positive field invalidates Invalidates number__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`object an object from a positive field invalidates Invalidates number__MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be greater than 0\\",
+    \\"path\\": [
+      \\"number\\"
+    ]
   }
 ]"
 `;
@@ -2343,6 +2515,162 @@ exports[`object an object from an array from a field without min or max invalida
 ]"
 `;
 
+exports[`object an object from an array from a negative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be less than 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
+exports[`object an object from an array from a negative field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be less than 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
+exports[`object an object from an array from a nonnegative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
+exports[`object an object from an array from a nonnegative field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
+exports[`object an object from an array from a nonpositive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
+exports[`object an object from an array from a nonpositive field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
 exports[`object an object from an array from a null field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -2439,6 +2767,58 @@ exports[`object an object from an array from a number literal invalidates Invali
       0
     ],
     \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`object an object from an array from a positive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be greater than 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
+  }
+]"
+`;
+
+exports[`object an object from an array from a positive field invalidates Invalidates string__DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      \\"string\\",
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be greater than 0\\",
+    \\"path\\": [
+      \\"string\\",
+      1
+    ]
   }
 ]"
 `;

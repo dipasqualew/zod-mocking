@@ -138,6 +138,106 @@ exports[`number a field without min or max invalidates Invalidates DEFAULT 1`] =
 ]"
 `;
 
+exports[`number a negative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a negative field invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be less than 0\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a nonnegative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a nonnegative field invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 0\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a nonpositive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a nonpositive field invalidates Invalidates MAX 1`] = `
+"[
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 0\\",
+    \\"path\\": []
+  }
+]"
+`;
+
+exports[`number a positive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [],
+    \\"message\\": \\"Expected number, received string\\"
+  }
+]"
+`;
+
+exports[`number a positive field invalidates Invalidates MIN 1`] = `
+"[
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be greater than 0\\",
+    \\"path\\": []
+  }
+]"
+`;
+
 exports[`number an integer field invalidates Invalidates DEFAULT 1`] = `
 "[
   {

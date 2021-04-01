@@ -11,8 +11,17 @@ import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
  * @param options
  */
 export const mockValid = (field: ZodNumber, options: MockOptions<number>) => {
-  const min = field._def.minimum?.value || MIN_INTEGER;
-  const max = field._def.maximum?.value || MAX_INTEGER;
+  let min = field._def.minimum?.value ?? MIN_INTEGER;
+  let max = field._def.maximum?.value ?? MAX_INTEGER;
+
+  if (!field._def.minimum?.inclusive) {
+    min += 1;
+  }
+
+  if (!field._def.maximum?.inclusive) {
+    max -= 1;
+  }
+
   const integer = Boolean(field._def.isInteger);
 
   const numbers = {

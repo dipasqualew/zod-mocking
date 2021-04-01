@@ -483,6 +483,78 @@ exports[`array an array from a field without min or max invalidates Invalidates 
 ]"
 `;
 
+exports[`array an array from a negative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be less than 0\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a nonnegative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 0\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
+exports[`array an array from a nonpositive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 0\\",
+    \\"path\\": [
+      1
+    ]
+  }
+]"
+`;
+
 exports[`array an array from a null field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -525,6 +597,30 @@ exports[`array an array from a number literal invalidates Invalidates DEFAULT 1`
       0
     ],
     \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from a positive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be greater than 0\\",
+    \\"path\\": [
+      1
+    ]
   }
 ]"
 `;
@@ -1441,6 +1537,114 @@ exports[`array an array from an object from a field without min or max invalidat
 ]"
 `;
 
+exports[`array an array from an object from a negative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be less than 0\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a nonnegative field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be greater than or equal to 0\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
+exports[`array an array from an object from a nonpositive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_big\\",
+    \\"maximum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": true,
+    \\"message\\": \\"Value should be less than or equal to 0\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
+  }
+]"
+`;
+
 exports[`array an array from an object from a null field invalidates Invalidates DEFAULT 1`] = `
 "[
   {
@@ -1507,6 +1711,42 @@ exports[`array an array from an object from a number literal invalidates Invalid
       \\"string\\"
     ],
     \\"message\\": \\"Expected 1265, received false\\"
+  }
+]"
+`;
+
+exports[`array an array from an object from a positive field invalidates Invalidates DEFAULT 1`] = `
+"[
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      0,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"invalid_type\\",
+    \\"expected\\": \\"number\\",
+    \\"received\\": \\"string\\",
+    \\"path\\": [
+      1,
+      \\"number\\"
+    ],
+    \\"message\\": \\"Expected number, received string\\"
+  },
+  {
+    \\"code\\": \\"too_small\\",
+    \\"minimum\\": 0,
+    \\"type\\": \\"number\\",
+    \\"inclusive\\": false,
+    \\"message\\": \\"Value should be greater than 0\\",
+    \\"path\\": [
+      2,
+      \\"number\\"
+    ]
   }
 ]"
 `;
