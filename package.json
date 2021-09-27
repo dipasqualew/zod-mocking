@@ -11,7 +11,7 @@
     "url": "https://dipasqualew.com"
   },
   "devDependencies": {
-    "@types/jest": "^26.0.23",
+    "@types/jest": "^27.0.2",
     "@types/uuid": "^8.3.0",
     "eslint": "^7.28.0",
     "eslint-config-dipasqualew": "^1.1.1",
