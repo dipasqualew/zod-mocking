@@ -8,6 +8,7 @@ import {
   getRandomUrl,
   getString,
   getUUID,
+  isDiscriminate,
 } from '../utils';
 
 /**
@@ -18,12 +19,13 @@ import {
  * @param options
  */
 export const mockValid = (field: ZodString, options: MockOptions<string>) => {
-  const minLength = field._def.minLength?.value || 0;
-  const maxLength = field._def.maxLength?.value || (minLength + 64);
+  const minKind = field._def.checks.find(isDiscriminate('kind', 'min'));
+  const minLength = minKind?.value || 0;
 
-  let generator = (min: number, max: number) => getRandomString(min, max, ALPHABET, options.rng);
+  const maxKind = field._def.checks.find(isDiscriminate('kind', 'max'));
+  const maxLength = maxKind?.value || (minLength + 64);
 
-  if (field._def.isUUID) {
+  if (field.isUUID) {
     // UUIDs are fix length
     // return immediately
     return {
@@ -31,11 +33,11 @@ export const mockValid = (field: ZodString, options: MockOptions<string>) => {
     };
   }
 
-  if (field._def.isEmail) {
+  let generator = (min: number, max: number) => getRandomString(min, max, ALPHABET, options.rng);
+  if (field.isEmail) {
     generator = (min: number, max: number) => getRandomEmail(min, max, 'example.com', options.rng);
   }
-
-  if (field._def.isURL) {
+  if (field.isURL) {
     generator = (min: number, max: number) => getRandomUrl(min, max, 'example.com', options.rng);
   }
 
@@ -56,7 +58,8 @@ export const mockValid = (field: ZodString, options: MockOptions<string>) => {
  * @param options
  */
 export const mockInvalid = (field: ZodString, options: MockOptions<string>) => {
-  const minLength = field._def.minLength?.value || 0;
+  const minKind = field._def.checks.find(isDiscriminate('kind', 'min'));
+  const minLength = minKind?.value || 0;
 
   const strings: [string, string | null][] = [
     ['DEFAULT', null],
@@ -66,8 +69,9 @@ export const mockInvalid = (field: ZodString, options: MockOptions<string>) => {
     strings.push(['MIN', getString(minLength - 1, ALPHABET, options.rng)]);
   }
 
-  if (field._def.maxLength) {
-    strings.push(['MAX', getString(field._def.maxLength.value + 1, ALPHABET, options.rng)]);
+  const maxKind = field._def.checks.find(isDiscriminate('kind', 'max'));
+  if (maxKind) {
+    strings.push(['MAX', getString(maxKind.value + 1, ALPHABET, options.rng)]);
   }
 
   return Object.fromEntries(strings) as { DEFAULT: string } & Record<string, string>;

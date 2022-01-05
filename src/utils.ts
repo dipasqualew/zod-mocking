@@ -225,3 +225,37 @@ export const getUUID = (rng: RNG = Math.random) => {
 
   return uuidv5(name, UUID_NAMESPACE);
 };
+
+/**
+ * Narrows
+ *
+ * @param discriminantKey
+ * @param discriminantValue
+ * @see https://stackoverflow.com/questions/59050071/narrow-return-type-of-find-from-discriminated-union-array
+ */
+export const isDiscriminate = <K extends PropertyKey, V extends string | number | boolean>(
+  discriminantKey: K,
+  discriminantValue: V | V[],
+) => <T extends Record<K, any>>(
+    obj: T & Record<K, V extends T[K] ? T[K] : V>,
+  ): obj is Extract<T, Record<K, V>> => (Array.isArray(discriminantValue)
+      ? discriminantValue.some((v) => obj[discriminantKey] === v)
+      : obj[discriminantKey] === discriminantValue);
+
+/**
+ * Narrows
+ *
+ * @param discriminantKey
+ * @param discriminantValue
+ * @see https://stackoverflow.com/questions/59050071/narrow-return-type-of-find-from-discriminated-union-array
+ */
+export function isNotDiscriminate<
+  K extends PropertyKey,
+  V extends string | number | boolean
+>(discriminantKey: K, discriminantValue: V | V[]) {
+  return <T extends Record<K, any>>(
+    obj: T & Record<K, V extends T[K] ? T[K] : V>,
+  ): obj is Exclude<T, Record<K, V>> => (Array.isArray(discriminantValue)
+    ? discriminantValue.some((v) => obj[discriminantKey] === v)
+    : obj[discriminantKey] === discriminantValue);
+}

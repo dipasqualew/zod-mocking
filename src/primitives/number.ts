@@ -1,7 +1,9 @@
 import type { ZodNumber } from 'zod';
 
 import type { MockOptions } from '../types';
-import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
+import {
+  MAX_INTEGER, MIN_INTEGER, getRandomNumber, isDiscriminate,
+} from '../utils';
 
 /**
  * Generates valid number mocks
@@ -11,26 +13,23 @@ import { MAX_INTEGER, MIN_INTEGER, getRandomNumber } from '../utils';
  * @param options
  */
 export const mockValid = (field: ZodNumber, options: MockOptions<number>) => {
-  let min = field._def.minimum?.value ?? MIN_INTEGER;
-  let max = field._def.maximum?.value ?? MAX_INTEGER;
-
-  if (!field._def.minimum?.inclusive) {
+  const minKind = field._def.checks.find(isDiscriminate('kind', 'min'));
+  let min = minKind?.value ?? MIN_INTEGER;
+  if (!minKind?.inclusive) {
     min += 1;
   }
 
-  if (!field._def.maximum?.inclusive) {
+  const maxKind = field._def.checks.find(isDiscriminate('kind', 'max'));
+  let max = maxKind?.value ?? MAX_INTEGER;
+  if (!maxKind?.inclusive) {
     max -= 1;
   }
 
-  const integer = Boolean(field._def.isInteger);
-
-  const numbers = {
-    DEFAULT: getRandomNumber(min, max, integer, options.rng),
+  return {
+    DEFAULT: getRandomNumber(min, max, field.isInt, options.rng),
     MIN: min,
     MAX: max,
   };
-
-  return numbers;
 };
 
 /**
@@ -41,26 +40,44 @@ export const mockValid = (field: ZodNumber, options: MockOptions<number>) => {
  * @param options
  */
 export const mockInvalid = (field: ZodNumber, options: MockOptions<number>) => {
-  const integer = Boolean(field._def.isInteger);
+  const integer = field.isInt;
 
-  const strings: [string, string | number][] = [
-    ['DEFAULT', 'not-a-number'],
-  ];
+  const strings: [string, string | number][] = [['DEFAULT', 'not-a-number']];
 
-  if (field._def.minimum) {
-    const underMin = getRandomNumber(MIN_INTEGER, field._def.minimum.value - 1, false, options.rng);
+  const minKind = field._def.checks.find(isDiscriminate('kind', 'min'));
+  if (minKind) {
+    const underMin = getRandomNumber(
+      MIN_INTEGER,
+      minKind.value - 1,
+      false,
+      options.rng,
+    );
     strings.push(['MIN', underMin]);
   }
 
-  if (field._def.maximum) {
-    const overMax = getRandomNumber(field._def.maximum.value + 1, MAX_INTEGER, false, options.rng);
+  const maxKind = field._def.checks.find(isDiscriminate('kind', 'max'));
+  if (maxKind) {
+    const overMax = getRandomNumber(
+      maxKind.value + 1,
+      MAX_INTEGER,
+      false,
+      options.rng,
+    );
     strings.push(['MAX', overMax]);
   }
 
   if (integer) {
-    const float = getRandomNumber(field._def.minimum?.value || 0, field._def.maximum?.value || 20, true, options.rng) + 0.1;
+    const float = getRandomNumber(
+      minKind?.value || 0,
+      maxKind?.value || 20,
+      true,
+      options.rng,
+    ) + 0.1;
     strings.push(['FLOAT', float]);
   }
 
-  return Object.fromEntries(strings) as { DEFAULT: number } & Record<string, number>;
+  return Object.fromEntries(strings) as { DEFAULT: number } & Record<
+    string,
+    number
+  >;
 };
