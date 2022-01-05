@@ -10,7 +10,7 @@ import { DeepPartial } from '../src/types';
  * @param field
  * @param group
  */
-export const validateGroup = (field: zod.ZodAny, group: Record<string, unknown>) => {
+export const validateGroup = (field: zod.ZodTypeAny, group: Record<string, unknown>) => {
   Object.entries(group).forEach(([key, value]) => {
     it(`Validates ${key}`, () => {
       const actual = field.parse(value);
@@ -25,7 +25,7 @@ export const validateGroup = (field: zod.ZodAny, group: Record<string, unknown>)
  * @param field
  * @param group
  */
-export const invalidateGroup = (field: zod.ZodAny, group: Record<string, unknown>) => {
+export const invalidateGroup = (field: zod.ZodTypeAny, group: Record<string, unknown>) => {
   Object.entries(group).forEach(([key, value]) => {
     it(`Invalidates ${key}`, () => {
       const failure = () => field.parse(value);
@@ -39,7 +39,7 @@ export const invalidateGroup = (field: zod.ZodAny, group: Record<string, unknown
  *
  * @param instances
  */
-export const validationTests = (instances: [string, zod.ZodAny][]) => {
+export const validationTests = (instances: [string, zod.ZodTypeAny][]) => {
   instances.forEach(([description, field]) => {
     describe(description, () => {
       const { valid, invalid } = mock(field);
@@ -61,7 +61,7 @@ export const validationTests = (instances: [string, zod.ZodAny][]) => {
  * @param instances
  * @param override
  */
-export const overrideTest = <T extends zod.ZodAny>(instances: [string, T][], override: DeepPartial<zod.infer<T>>) => {
+export const overrideTest = <T extends zod.ZodTypeAny>(instances: [string, T][], override: DeepPartial<zod.infer<T>>) => {
   instances.forEach(([description, field]) => {
     describe(description, () => {
       describe(`overrides ${description}`, () => {
@@ -106,7 +106,7 @@ export const overrideTest = <T extends zod.ZodAny>(instances: [string, T][], ove
  *
  * @param instances
  */
-export const seedTest = <T extends zod.ZodAny>(instances: [string, T][]) => {
+export const seedTest = <T extends zod.ZodTypeAny>(instances: [string, T][]) => {
   instances.forEach(([description, field]) => {
     describe(description, () => {
       describe('generates deterministic values', () => {

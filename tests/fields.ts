@@ -1,6 +1,6 @@
 import * as zod from 'zod';
 
-export type AnyTestCase = [string, zod.ZodAny | zod.ZodUnknown];
+export type AnyTestCase = [string, zod.ZodTypeAny | zod.ZodUnknown];
 export type BigIntTestCase = [string, zod.ZodBigInt];
 export type BooleanTestCase = [string, zod.ZodBoolean];
 export type DateTestCase = [string, zod.ZodDate];
@@ -9,7 +9,7 @@ export type UndefinedTestCase = [string, zod.ZodUndefined | zod.ZodVoid];
 export type NumberTestCase = [string, zod.ZodNumber];
 export type StringTestCase = [string, zod.ZodString];
 export type LiteralTestCase<T> = [string, zod.ZodLiteral<T>];
-export type ArrayTestCase<T extends zod.ZodAny = zod.ZodAny> = [string, zod.ZodArray<T>];
+export type ArrayTestCase<T extends zod.ZodTypeAny = zod.ZodTypeAny> = [string, zod.ZodArray<T>];
 export type ObjectTestCase<T extends zod.ZodRawShape = zod.ZodRawShape> = [string, zod.ZodObject<T>];
 
 export const anyFields: AnyTestCase[] = [

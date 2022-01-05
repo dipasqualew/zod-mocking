@@ -20,7 +20,7 @@ import { getRng } from './utils';
  * @param field
  * @param options
  */
-export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, zod.infer<T>> => {
+export const mockValid = <T extends zod.ZodTypeAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, zod.infer<T>> => {
   const context: MockOptions<zod.infer<T>> = { ...options };
 
   if (!context.rng) {
@@ -87,7 +87,7 @@ export const mockValid = <T extends zod.ZodAny>(field: T, options: MockOptions<z
  * @param field
  * @param options
  */
-export const mockInvalid = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, DeepPartial<zod.infer<T>>> => {
+export const mockInvalid = <T extends zod.ZodTypeAny>(field: T, options: MockOptions<zod.infer<T>> = {}): Record<string, DeepPartial<zod.infer<T>>> => {
   const context: MockOptions<zod.infer<T>> = { ...options };
 
   if (!context.rng) {
@@ -154,7 +154,7 @@ export const mockInvalid = <T extends zod.ZodAny>(field: T, options: MockOptions
  * @param field
  * @param options
  */
-export const mock = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.infer<T>> = {}) => {
+export const mock = <T extends zod.ZodTypeAny>(field: T, options: MockOptions<zod.infer<T>> = {}) => {
   return {
     valid: mockValid(field, options),
     invalid: mockInvalid(field, options),
@@ -168,7 +168,7 @@ export const mock = <T extends zod.ZodAny>(field: T, options: MockOptions<zod.in
  * @param value
  */
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const applyEffects = <T extends zod.ZodAny>(effects: (zod.Effect<any> | zod.ZodTransformer<T>)[], value: any) => {
+export const applyEffects = <T extends zod.ZodTypeAny>(effects: (zod.Effect<any> | zod.ZodTransformer<T>)[], value: any) => {
   let transformed = value;
 
   for (let i = 0; i < effects.length; i += 1) {
@@ -188,7 +188,7 @@ export const applyEffects = <T extends zod.ZodAny>(effects: (zod.Effect<any> | z
  * @param field
  * @param options
  */
-export const applyEffectsValid = <T extends zod.ZodAny>(field: zod.ZodEffects<T>, options: MockOptions<zod.infer<T>> = {}) => {
+export const applyEffectsValid = <T extends zod.ZodTypeAny>(field: zod.ZodEffects<T>, options: MockOptions<zod.infer<T>> = {}) => {
   const mocks = mockValid(field._def.schema, options);
   const effects = field._def.effects;
 
@@ -207,7 +207,7 @@ export const applyEffectsValid = <T extends zod.ZodAny>(field: zod.ZodEffects<T>
  * @param field
  * @param options
  */
-export const applyEffectsInvalid = <T extends zod.ZodAny>(field: zod.ZodEffects<T>, options: MockOptions<zod.infer<T>> = {}) => {
+export const applyEffectsInvalid = <T extends zod.ZodTypeAny>(field: zod.ZodEffects<T>, options: MockOptions<zod.infer<T>> = {}) => {
   const mocks = mockInvalid(field._def.schema, options);
 
   // Don't bother transforming
@@ -233,7 +233,7 @@ export const applyEffectsInvalid = <T extends zod.ZodAny>(field: zod.ZodEffects<
  * @param field
  * @param options
  */
-export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>, options: MockOptions<zod.infer<T>>) => {
+export const generateValidArrays = <T extends zod.ZodTypeAny>(field: zod.ZodArray<T>, options: MockOptions<zod.infer<T>>) => {
   const items = mockValid(field._def.type, options);
 
   return {
@@ -248,7 +248,7 @@ export const generateValidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>
  * @param field
  * @param options
  */
-export const generateInvalidArrays = <T extends zod.ZodAny>(field: zod.ZodArray<T>, options: MockOptions<zod.infer<T>>): Record<string, DeepPartial<zod.TypeOf<T>>[]> => {
+export const generateInvalidArrays = <T extends zod.ZodTypeAny>(field: zod.ZodArray<T>, options: MockOptions<zod.infer<T>>): Record<string, DeepPartial<zod.TypeOf<T>>[]> => {
   const items = mockInvalid(field._def.type, options);
 
   const values = Object.values(items);

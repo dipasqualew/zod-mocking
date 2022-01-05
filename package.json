@@ -1,14 +1,25 @@
 {
   "name": "zod-mocking",
-  "private": false,
-  "version": "0.2.1",
+  "version": "0.2.2",
   "license": "MIT",
   "description": "Generate valid or invalid mocks for your tests, directly from your zod models",
-  "main": "fields.js",
   "author": {
     "name": "William Di Pasquale",
     "email": "wdp@dipasqualew.com",
     "url": "https://dipasqualew.com"
+  },
+  "contributors": [
+    {
+      "name": "Rob Hilgefort",
+      "email": "rjhilgefort@gmail.com",
+      "url": "https://rob.hilgefort.me"
+    }
+  ],
+  "main": "fields.js",
+  "private": false,
+  "dependencies": {
+    "uuid": "^8.3.2",
+    "zod": "~3.8.0"
   },
   "devDependencies": {
     "@types/jest": "^26.0.23",
@@ -25,10 +36,7 @@
     "build:package": "cp .gitignore package.json README.md LICENSE ./dist",
     "build": "yarn build:compile && yarn build:package",
     "lint": "yarn eslint .",
+    "lint:fix": "yarn eslint . --fix",
     "test": "jest --colors"
-  },
-  "dependencies": {
-    "uuid": "^8.3.2",
-    "zod": "^3.0.0-alpha.33"
   }
 }
