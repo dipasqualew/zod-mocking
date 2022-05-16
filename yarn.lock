@@ -4674,7 +4674,7 @@ yargs@^15.4.1:
     y18n "^4.0.0"
     yargs-parser "^18.1.2"
 
-zod@^3.0.0-alpha.33:
-  version "3.0.0-alpha.33"
-  resolved "https://registry.yarnpkg.com/zod/-/zod-3.0.0-alpha.33.tgz#8562cc92e57b7df7e0f99f3376181782d7233cfb"
-  integrity sha512-zxh7bbKBd1gPiHhjFL1f4QNJm7fnw8IJir84pFhqVsHalSBFsxIhDTduV9MdpCTpyfOvRnFgOF0rqrdLeQTEyA==
+zod@^3.16.0:
+  version "3.16.0"
+  resolved "https://registry.yarnpkg.com/zod/-/zod-3.16.0.tgz#edfdbf77fcc9a5af13a2630a44bdda5b90e759b7"
+  integrity sha512-szrIkryADbTM+xBt2a1KoS2CJQXec4f9xG78bj5MJeEH/XqmmHpnO+fG3IE115AKBJak+2HrbxLZkc9mhdbDKA==
